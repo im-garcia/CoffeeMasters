@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <title>Coffee Masters - Info</title>
+    <style>
+        body {
+            font-family: 'Roboto';
+            margin: 20px;
+        }
+
+        h1 {
+            color: #B08968;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 20px;
+            color: #B08968;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #B08968;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-bottom: 24px;
+            float: right;
+        }
+
+        .rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            margin-inline: 64px;
+            margin-block: 28px;
+        }
+
+        .star {
+            font-size: 24px;
+            cursor: pointer;
+            color: #FFD700;
+        }
+
+        .star:hover {
+            color: #FFC107;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Location</h1>
+<iframe src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d4259.543317821837!2d-58.44105371975212!3d-34.59008169229277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e3!4m0!4m3!3m2!1d-34.58944598504296!2d-58.444949521737605!5e0!3m2!1ses-419!2sar!4v1702840252999!5m2!1ses-419!2sar" width=100% height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<form id="feedbackForm" action="" method="post">
+    <label for="review">How was your experience?</label>
+    <textarea id="review" name="review" rows="4" required></textarea>
+
+    <div class="rating">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+    </div>
+
+    <input type="hidden" id="rating" name="rating" value="5">
+
+    <input type="submit" value="Submit" class="submit-button">
+</form>
+
+<script>
+        const stars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('rating');
+        const form = document.getElementById('feedbackForm');
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                ratingInput.value = index - 1;
+                updateRating();
+            });
+        });
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            document.getElementById('review').value = '';
+            ratingInput.value = '5';
+            updateRating();
+            Android.showSnackbar();
+        });
+
+        function updateRating() {
+            stars.forEach((star, index) => {
+                if (index > ratingInput.value) {
+                    star.style.color = '#FFD700';
+                } else {
+                    star.style.color = '#ccc';
+                }
+            });
+        }
+
+        updateRating();
+</script>
+
+</body>
+</html>

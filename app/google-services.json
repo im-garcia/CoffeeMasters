@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "246632080195",
+    "project_id": "coffeemasters-54867",
+    "storage_bucket": "coffeemasters-54867.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246632080195:android:dc6a3b83400245f43e05f6",
+        "android_client_info": {
+          "package_name": "app.itmaster.mobile.coffeemasters"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAea4wQb7zZbgQ6jc6XfSUE9pEIV58W6Nc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
